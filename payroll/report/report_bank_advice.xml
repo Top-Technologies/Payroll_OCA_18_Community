@@ -1,0 +1,63 @@
+<!-- report_bank_advice.xml -->
+<odoo>
+    <!-- Report Registration -->
+    <report
+        id="report_bank_advice"
+        model="hr.payslip"
+        string="Bank Advice"
+        report_type="qweb-pdf"
+        name="payroll.bank_advice_template"
+        file="payroll.bank_advice_template"
+    />
+
+    <!-- Multi-select Action Button -->
+    <record id="action_print_bank_advice_multi" model="ir.actions.server">
+        <field name="name">Print Bank Advice</field>
+        <field name="model_id" ref="payroll.model_hr_payslip"/>
+        <field name="binding_model_id" ref="payroll.model_hr_payslip"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+action = records.action_print_bank_advice()
+        </field>
+    </record>
+
+    <!-- Report Template -->
+    <template id="bank_advice_template">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2 style="text-align:center;">Bank Salary Advice</h2>
+
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Employee</th>
+                            <th>Account Number</th>
+                            <th>Bank</th>
+                            <th style="text-align:right;">Net Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="slip">
+                            <tr>
+                                <td><t t-esc="slip.employee_id.name"/></td>
+                                <td><t t-esc="slip.employee_id.bank_account_id.acc_number"/></td>
+                                <td><t t-esc="slip.employee_id.bank_account_id.bank_id.name"/></td>
+                                <td style="text-align:right;">
+                                    <t t-esc="slip.get_salary_line_total('NET')"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+                <h4>
+                    Total Amount:
+                    <span style="float:right;">
+                        <t t-esc="sum(docs.mapped(lambda s: s.get_salary_line_total('NET')))"/>
+                    </span>
+                </h4>
+            </div>
+        </t>
+    </template>
+</odoo>
