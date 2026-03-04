@@ -10,18 +10,6 @@
         file="payroll.bank_advice_template"
     />
 
-    <!-- Multi-select Action Button -->
-    <record id="action_print_bank_advice_multi" model="ir.actions.server">
-        <field name="name">Print Bank Advice</field>
-        <field name="model_id" ref="payroll.model_hr_payslip"/>
-        <field name="binding_model_id" ref="payroll.model_hr_payslip"/>
-        <field name="binding_view_types">list</field>
-        <field name="state">code</field>
-        <field name="code">
-action = records.action_print_bank_advice()
-        </field>
-    </record>
-
     <!-- Report Template -->
     <template id="bank_advice_template">
         <t t-call="web.external_layout">
