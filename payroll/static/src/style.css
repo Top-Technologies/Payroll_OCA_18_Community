@@ -1,0 +1,107 @@
+p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.bold-text {
+    font-weight: bold;
+}
+
+.page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.header-right {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.header-left {
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.subject {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.authorization-text {
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.styled-table thead tr {
+    background-color: #109245;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #000;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #4F63AB;
+}
+
+.styled-table th {
+    padding: 12px 8px;
+    font-weight: bold;
+}
+
+.styled-table td {
+    padding: 12px 8px;
+    border: 1px solid #ddd;
+}
+
+.approve {
+    border-collapse: collapse;
+    margin: 30px 0;
+    font-family: sans-serif;
+    min-width: 500px;
+    border: none;
+}
+
+.approve th {
+    padding: 10px;
+    text-align: left;
+    font-weight: normal;
+}
+
+.total-table {
+    width: 300px;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.total-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bank-info {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}

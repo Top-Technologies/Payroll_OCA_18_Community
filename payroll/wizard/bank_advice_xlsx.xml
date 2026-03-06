@@ -1,0 +1,14 @@
+<odoo>
+
+    <record id="action_export_bank_advice_xlsx" model="ir.actions.server">
+        <field name="name">Export Bank Advice Excel</field>
+        <field name="model_id" ref="payroll.model_hr_payslip"/>
+        <field name="binding_model_id" ref="payroll.model_hr_payslip"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+action = env["bank.advice.xlsx"].with_context(active_ids=records.ids).export_xlsx()
+        </field>
+    </record>
+
+</odoo>
